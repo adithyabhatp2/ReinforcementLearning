@@ -76,6 +76,7 @@ class DQNAgent:
                 target[action] = reward + self.gamma * \
                             np.amax(self.model.predict(next_state)[0])
             X[i], Y[i] = state, target
+
         self.model.fit(X, Y, batch_size=batch_size, nb_epoch=1, verbose=0)
         if self.epsilon > self.e_min:
             self.epsilon *= self.e_decay
