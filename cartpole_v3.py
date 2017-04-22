@@ -69,7 +69,9 @@ class DQNAgent:
         Y = np.zeros((batch_size, self.action_size))
         for i in range(batch_size):
             state, action, reward, next_state, done = minibatch[i]
-            target = self.model.predict(state)[0]
+
+            # multiple actions, but we only select one.. give 0 error for the other actions.
+            target = self.model.predict(state)[0] 
             if done:
                 target[action] = reward
             else:
