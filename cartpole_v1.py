@@ -17,7 +17,7 @@ if len(sys.argv) < 4:
     printUsage()
     sys.exit()
 
-np.random.seed(7)
+# np.random.seed(7)
 
 MODEL_DIR_PATH = "./models/"
 
